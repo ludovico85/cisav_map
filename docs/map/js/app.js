@@ -30,13 +30,15 @@ var google = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 var IGM = L.tileLayer('https://ludovico85.github.io/custom_XYZ_tiles/IGM_cisav/{z}/{x}/{-y}.png', {
     tms: true,
 	opacity: 1,
-	attribution: '<a href = "https://github.com/ludovico85/custom_XYZ_tiles">IGM</a>'
+	attribution: '<a href="https://github.com/ludovico85/custom_XYZ_tiles">IGM</a>'
 	});
+
+
 
 var baseMaps = {
     "Mapbox": mapbox,
     "Google Satellite": google,
-	"IGM": IGM
+	"Estratto IGM 1:25.000": IGM,
 };
 
 // function for custom selection of baseMaps
@@ -139,7 +141,7 @@ var poi_acquedotto = new L.geoJson(poi_acquedotto, {
     return L.marker(layer, {icon: custom_icon});},
 	onEachFeature: function (feature, layer) {
 	//results.push(feature.properties);
-	layer.bindPopup('<table class="table"><tbody><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Località</td><td>'+feature.properties.Localita+'</td></tr><tr><td colspan="2"><img src=' + feature.properties.Foto_low +' " width=100%/></td></tr><tr><td colspan = "2"> <p>'+feature.properties.Credits+'</p></td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><tr class="text-center"><td colspan="2"><a href="'+feature.properties.COLLEGAMENTI+'" class="btn btn-primary btn-sm" role="button" target="_blank">Apri il link</a></td></tr></tbody></table>')}
+	layer.bindPopup('<table class="table"><tbody><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Località</td><td>'+feature.properties.Localita+'</td></tr><tr><td colspan="2"><img src=' + feature.properties.Foto_low +' " width=100%/></td></tr><tr><td colspan = "2">'+feature.properties.Credits+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><tr class="text-center"><td colspan="2"><a href="'+feature.properties.COLLEGAMENTI+'" class="btn btn-primary btn-sm" role="button" target="_blank">Apri il link</a></td></tr></tbody></table>')}
 }).addTo(mymap);
 
 // loading all cisav point
