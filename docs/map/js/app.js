@@ -4,7 +4,7 @@ var mymap = L.map('map',
 		zoomControl:false,//custom zoom control
 		minZoom: 11,
     	maxZoom: 18,
-		maxBounds: [[41.15, 13.90], [42.5, 14.24]],
+		maxBounds: [[41.15, 13], [42.5, 15]],
 		fullscreenControl:true
 }).setView([41.55518701, 14.087], 11);
 
