@@ -162,7 +162,7 @@ var cisav_sorgenti = new L.geoJson(cisav_acque, {
 
 var cisav_fontane = new L.geoJson(cisav_acque, {
 	filter: function (feature, layer) {
-	return (feature.properties.presidio === "Fontane")},
+	return (feature.properties.presidio === "Fontana")},
 	pointToLayer: presidio_style,
 	style: presidio_style,
 	onEachFeature: function (feature, layer) {
