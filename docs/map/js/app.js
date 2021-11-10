@@ -41,9 +41,9 @@ var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{
 
 var baseMaps = {
     "Mapbox": mapbox,
-	"Esri Wolrd Imagery": Esri_WorldImagery,
+	"Esri World Imagery": Esri_WorldImagery,
 	"Estratto IGM 1:25.000": IGM,
-	"Open Street Map": OpenStreetMap_Mapnik,
+	"OpenStreetMap": OpenStreetMap_Mapnik,
 };
 
 // loading geoJson
