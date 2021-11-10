@@ -15,7 +15,7 @@ L.control.zoom({
 L.control.scale().addTo(mymap); // add scale bar
 
 // custom attribution
-mymap.attributionControl.addAttribution('powered by<a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG-minimini.png" width = "2%"> naturagis</a>');
+mymap.attributionControl.addAttribution('powered by<a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG-minimini.png" width = "15px"> naturagis</a>');
 
 // loading some basemaps
 var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -198,17 +198,16 @@ var cisav_corso_acqua = new L.geoJson(cisav_acque, {
 	layer.bindPopup('<table class="table"><tbody><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Denominazione/<br>toponimo</td><td>'+feature.properties.denominazione+'</td></tr><tr><td colspan="2"><img src=' + feature.properties.Foto_low +' " width=100%/></td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr><tr><td>Corso d&#39acqua</td><td>'+feature.properties.corso+'</td></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2"><a href="'+feature.properties.COLLEGAMENTI+'" class="btn btn-primary btn-sm" role="button" target="_blank">Apri il link</a></td></tr></tbody></table>')}
 }).addTo(mymap);
 
-// create overlaymaps for L.control.layers
+// create overlaymaps for L.control.layers with custom icons
 var overlayMaps = {
-    "Fontane": cisav_fontane,
-    "Sorgenti": cisav_sorgenti,
-	"Corsi d'acqua":cisav_corso_acqua,
-	"Opere idrauliche":cisav_opere_idrauliche,
-	"Rudere": cisav_rudere,
-	"POI Acquedotto romano di Venafro":poi_acquedotto,
+    '<img src = ico/fontane.png width="25px">Fontane': cisav_fontane,
+    '<img src = ico/sorgenti.png width="25px">Sorgenti': cisav_sorgenti,
+	'<img src = ico/corso_acqua.png width="25px">Corsi d&#8217acqua':cisav_corso_acqua,
+	'<img src = ico/opere_idrauliche.png width="25px">Opere idrauliche':cisav_opere_idrauliche,
+	'<img src = ico/rudere.png width="25px">Rudere': cisav_rudere,
+	'<img src = ico/poi.png width="25px">POI Acquedotto romano di Venafro':poi_acquedotto,
 };
 
-// L.control.layers
 L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(mymap);
 
 // create the sidebar instance and add it to the map
@@ -224,9 +223,9 @@ title:'Basemaps',
 })
 sidebar.addPanel({
 id:   'info',
-tab:  '<i class="fas fa-globe-europe"></i>',
+tab:  '<i class="fas fa-info-circle"></i>',
 title: 'Informazioni',
-pane: '<p id="geotext"></p>'
+pane: '<br><h6><p>Webmap creata da <a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG_sito.png" width = "25%"></a></p><p> La mappa è stata realizzata utilizzando le seguenti librerie e plug-in:</p><li><a href="https://leafletjs.com/"><span style ="color: #36a3d4">Leaflet</span></a> per la creazione della Webmap</li><li><a href="https://github.com/lennardv2/Leaflet.awesome-markers"><span style ="color: #36a3d4">Leaflet.awesome-markers plugin v2.0</span></a> per le icone personalizzate</li><li><a href="https://github.com/Turbo87/sidebar-v2"><span style ="color: #36a3d4">Sidebar-v2</span></a> per la barra laterale</li><li><a href="https://fontawesome.com/"><span style ="color: #36a3d4">Font Awesome</span></a> per le icone</li><li><a href="https://www.qgis.org/"><span style ="color: #36a3d4">QGIS</span></a> per la gestione dei dati geografici e la creazione della base IGM</li>' 
 //button: function() { alert('opened via JS callback') },
 //disabled: true,
 })
