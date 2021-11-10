@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>-->
+        <!--<script src="https://maps.googleapis.com/maps/api/js" async defer></script>-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=" async defer></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
@@ -25,7 +28,7 @@
             </ul>
             <!-- bottom aligned tabs -->
             <ul role="tablist">
-                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class="fas fa-bars"></i></a></li>
             </ul>
         </div>
 
@@ -36,7 +39,6 @@
                     Nome del progetto
                     <span class="leaflet-sidebar-close"><i class="far fa-window-close"></i></span>
                 </h1>
-
                 <h5>Descrizione del progetto</h5>
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -46,6 +48,7 @@
         </div>
     </div>
         <div id="map"></div>
+        <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script> <!-- google mutant -->
         <script src="data/poi_acquedotto.js"></script><!-- loading geojson from data subfolder -->
         <script src="data/cisav_acque.js"></script><!-- loading geojson from data subfolder -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

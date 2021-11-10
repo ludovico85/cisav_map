@@ -22,18 +22,17 @@ var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y
 		  maxZoom: 21,attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		  id: 'mapbox/streets-v11',
 		  tileSize: 512,
-		  zoomOffset: -1}).addTo(mymap);
-var google = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-	attribution: '&copy;Immagini ©2020 CNES / Airbus,Landsat / Copernicus,Maxar Technologies,Dati cartografici ©2020 '
-	});
+		  zoomOffset: -1});//.addTo(mymap);
+
+var google = L.gridLayer.googleMutant({
+		type: "satellite", // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
+}).addTo(mymap);;
 
 var IGM = L.tileLayer('https://ludovico85.github.io/custom_XYZ_tiles/IGM_cisav/{z}/{x}/{-y}.png', {
     tms: true,
 	opacity: 1,
 	attribution: '<a href="https://github.com/ludovico85/custom_XYZ_tiles">IGM</a>'
-	});
-
-
+});
 
 var baseMaps = {
     "Mapbox": mapbox,
@@ -225,7 +224,7 @@ sidebar.addPanel({
 id:   'info',
 tab:  '<i class="fas fa-info-circle"></i>',
 title: 'Informazioni',
-pane: '<br><h6><p>Webmap creata da <a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG_sito.png" width = "25%"></a></p><p> La mappa è stata realizzata utilizzando le seguenti librerie e plug-in:</p><li><a href="https://leafletjs.com/"><span style ="color: #36a3d4">Leaflet</span></a> per la creazione della Webmap</li><li><a href="https://github.com/lennardv2/Leaflet.awesome-markers"><span style ="color: #36a3d4">Leaflet.awesome-markers plugin v2.0</span></a> per le icone personalizzate</li><li><a href="https://github.com/Turbo87/sidebar-v2"><span style ="color: #36a3d4">Sidebar-v2</span></a> per la barra laterale</li><li><a href="https://fontawesome.com/"><span style ="color: #36a3d4">Font Awesome</span></a> per le icone</li><li><a href="https://www.qgis.org/"><span style ="color: #36a3d4">QGIS</span></a> per la gestione dei dati geografici e la creazione della base IGM</li>' 
+pane: '<br><h6><p>Webmap creata da <a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG_sito.png" width = "25%"></a></p><p> La mappa è stata realizzata utilizzando le seguenti librerie e plug-in:</p><li><a href="https://leafletjs.com/"><span style ="color: #36a3d4">Leaflet</span></a> per la creazione della Webmap</li><li><a href="https://github.com/lennardv2/Leaflet.awesome-markers"><span style ="color: #36a3d4">Leaflet.awesome-markers plugin v2.0</span></a> per le icone personalizzate</li><li><a href="https://github.com/Turbo87/sidebar-v2"><span style ="color: #36a3d4">Sidebar-v2</span></a> per la barra laterale</li><li><a href="https://fontawesome.com/"><span style ="color: #36a3d4">Font Awesome</span></a> per le icone</li><li><a href="https://www.qgis.org/"><span style ="color: #36a3d4">QGIS</span></a> per la gestione dei dati geografici e la creazione della base IGM</li>'
 //button: function() { alert('opened via JS callback') },
 //disabled: true,
 })
