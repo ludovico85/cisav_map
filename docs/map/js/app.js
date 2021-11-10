@@ -22,11 +22,11 @@ var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y
 		  maxZoom: 21,attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		  id: 'mapbox/streets-v11',
 		  tileSize: 512,
-		  zoomOffset: -1});//.addTo(mymap);
+		  zoomOffset: -1}).addTo(mymap);
 
 var google = L.gridLayer.googleMutant({
 		type: "satellite", // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
-}).addTo(mymap);;
+});
 
 var IGM = L.tileLayer('https://ludovico85.github.io/custom_XYZ_tiles/IGM_cisav/{z}/{x}/{-y}.png', {
     tms: true,
