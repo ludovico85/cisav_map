@@ -164,7 +164,7 @@ var overlayMaps = {
 	'<img src = ico/poi.png width="25px">POI Acquedotto romano di Venafro':poi_acquedotto,
 };
 
-L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(mymap);
+L.control.layers(baseMaps, overlayMaps, {collapsed: true}).addTo(mymap);
 
 // sidebar
 // create the sidebar instance and add it to the map
