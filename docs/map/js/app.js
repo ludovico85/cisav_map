@@ -105,7 +105,7 @@ var poi_acquedotto = new L.geoJson(poi_acquedotto, {
 	pointToLayer: function (feature, layer) {
     return L.marker(layer, {icon: custom_icon});},
 	onEachFeature: function (feature, layer) {
-	layer.bindPopup('<table class="table"><tbody><tr><td>Località</td><td>'+feature.properties.Localita+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td colspan="2"><img src=' + feature.properties.Foto_low +' " width=100%/></td></tr><tr><td colspan = "2">'+feature.properties.Credits+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><tr class="text-center"><td colspan="2"><a href="'+feature.properties.COLLEGAMENTI+'" class="btn btn-primary btn-sm" role="button" target="_blank">Apri il link</a></td></tr></tbody></table>')}
+	layer.bindPopup('<table class="table"><tbody><tr><td>Località</td><td>'+feature.properties.Localita+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td colspan="2"><img src=' + feature.properties.Foto_low +' " width=100%/></td></tr><tr><td colspan = "2">'+feature.properties.Credits+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><tr class="text-center"><td colspan="2"><a href="'+feature.properties.href+'" class="btn btn-primary btn-sm" role="button" target="_blank">Apri il link</a></td></tr></tbody></table>')}
 }).addTo(mymap);
 
 // filter cisav point based on presidio attribute
