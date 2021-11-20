@@ -32,6 +32,14 @@ html, body {
     color: #ffffff;
 }
 
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #007bFF;
+
+}
+
+
 .table p {
     word-wrap: break-word;
 }
