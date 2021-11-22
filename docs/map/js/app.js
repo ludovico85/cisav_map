@@ -53,48 +53,50 @@ var baseMaps = {
 
 // loading geoJson
 // custom icon
-var custom_icon = new L.AwesomeMarkers.icon ({
-	icon: 'tint',
+var custom_icon = new L.ExtraMarkers.icon ({
+	icon: 'fa-tint',
 	prefix: 'fa',
-	markerColor: 'red'
+	shape: 'circle',
+	markerColor: 'orange-dark'
 });
 
 // function for categorized symbols
 function presidio_style(feature, latlng) {
 	switch(feature.properties["presidio"]){
 		case "Fontana":
-			var fontanaIcon = new L.AwesomeMarkers.icon ({
-				icon: 'faucet',
+			var fontanaIcon = new L.ExtraMarkers.icon ({
+				icon: 'fa-faucet',
 				prefix: 'fa',
-    			markerColor: 'blue',
+    			markerColor: 'cyan',
 			});
 			return L.marker(latlng, {icon: fontanaIcon});
 		case "Sorgente":
-			var sorgenteIcon = new L.AwesomeMarkers.icon ({
-				icon: 'tint',
+			var sorgenteIcon = new L.ExtraMarkers.icon ({
+				icon: 'fa-tint',
 				prefix: 'fa',
-    			markerColor: 'cadetblue',
+    			markerColor: 'blue-dark',
 			});
 			return L.marker(latlng, {icon: sorgenteIcon});
 		case "Opere idrauliche":
-			var opereIcon = new L.AwesomeMarkers.icon ({
-				icon: 'tint-slash',
+			var opereIcon = new L.ExtraMarkers.icon ({
+				icon: 'fa-tint-slash',
 				prefix: 'fa',
-    			markerColor: 'darkpurple'
+    			markerColor: 'purple'
 			});
 			return L.marker(latlng, {icon: opereIcon});
 		case "Rudere":
-			var rudereIcon = new L.AwesomeMarkers.icon ({
-				icon: 'dungeon',
+			var rudereIcon = new L.ExtraMarkers.icon ({
+				icon: 'fa-dungeon',
 				prefix: 'fa',
-    			markerColor: 'darkpurple'
+    			markerColor: 'purple'
 			});
 			return L.marker(latlng, {icon: rudereIcon});
 		case "Corso d'acqua":
-			var corsoIcon = new L.AwesomeMarkers.icon ({
-				icon: 'stream',
+			var corsoIcon = new L.ExtraMarkers.icon ({
+				icon: 'fa-stream',
+				iconColor: '#1e91d3',
 				prefix: 'fa',
-    			markerColor: 'cadetblue',
+    			markerColor: 'white',
 			});
 			return L.marker(latlng, {icon: corsoIcon});
 		};
