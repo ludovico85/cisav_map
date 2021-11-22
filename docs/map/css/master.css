@@ -39,7 +39,6 @@ html, body {
 
 }
 
-
 .table p {
     word-wrap: break-word;
 }
@@ -77,4 +76,8 @@ background-color: #4193f2;}
 
 .leaflet-sidebar-tabs > li:hover, .leaflet-sidebar-tabs > ul > li:hover {
 color: #fff;
-background-color: #557cabd4;}
+background-color: #557cabd4;};
+
+.fa-facebook-square {
+  color: blue;
+}
