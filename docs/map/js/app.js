@@ -226,7 +226,7 @@ var dorsale_sentiero = new L.geoJson(dorsale_sentiero, {
 	color: 'red',
 	dashArray: '5, 10',
 	onEachFeature: function(feature, layer){
-        layer.bindTooltip(feature.properties.Tratto), {sticky: true}}
+        layer.bindTooltip(feature.properties.Tratto, {sticky: true})}
 }).addTo(mymap);
 //fiume_volturno.bindTooltip("Fiume Volturno", {sticky: true});
 

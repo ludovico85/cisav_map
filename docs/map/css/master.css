@@ -34,6 +34,11 @@ html, body {
     color: #000000;
 }
 
+.leaflet-tooltip {
+    color: #644202;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
 .btn.btn-primary.btn-sm{
     color: #ffffff;
 }
