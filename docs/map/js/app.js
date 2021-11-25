@@ -244,18 +244,18 @@ var dorsale_sentiero = new L.geoJson(dorsale_sentiero, {
 
 // create grouped overlaymaps for L.control.groupedLayers with custom icons
 var groupedOverlays = {
-	"Sentiero di Acqua e Pietra – Il racconto delle comunità" : {
+	"Sentiero di Acqua e Pietra:<br>Il racconto delle comunità" : {
 		'<img src = ico/fontane.png width="25px">Fontane': cisav_fontane,
     '<img src = ico/sorgenti.png width="25px">Sorgenti': cisav_sorgenti,
 		'<img src = ico/corso_acqua.png width="25px">Corsi d&#8217acqua':cisav_corso_acqua,
 		'<img src = ico/opere_idrauliche.png width="25px">Opere idrauliche':cisav_opere_idrauliche,
 	},
-	"Sentiero di Acqua e Pietra – Camminare nell’Acqua e nella Pietra":{
+	"Sentiero di Acqua e Pietra:<br>Camminare nell’Acqua e nella Pietra":{
 		'<img src = ico/table.png width="25px">Tabella informativa': table,
     '<img src = ico/murales.png width="25px">Murales': murales,
 		'<img src = ico/memoria.png width="25px">Fontana della memoria':memoria,
 	},
-	"Sentiero di Acqua e Pietra – L'acquedotto romano tra passato e futuro":{
+	"Sentiero di Acqua e Pietra:<br>L'acquedotto romano tra passato e futuro":{
 		'<img src = ico/poi.png width="25px">POI Acquedotto romano di Venafro':poi_acquedotto,
 	},
 	"Rete dei sentieri":{
@@ -265,7 +265,7 @@ var groupedOverlays = {
 };
 
 //L.control.layers(baseMaps, overlayMaps, {collapsed: true}).addTo(mymap);
-L.control.groupedLayers(baseMaps, groupedOverlays).addTo(mymap);
+L.control.groupedLayers(baseMaps, groupedOverlays, {collapsed: false}).addTo(mymap);
 
 // sidebar
 // create the sidebar instance and add it to the map
