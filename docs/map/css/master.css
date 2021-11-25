@@ -20,6 +20,10 @@ html, body {
     color:#644202;
 }
 
+.leaflet-popup-content {
+  color:#644202;
+}
+
 .leaflet-popup-tip {
     background: #ffffff;
     opacity: 1;
@@ -39,6 +43,11 @@ html, body {
     color: #ffffff;
     background-color: #5A9CE8;
 
+}
+
+.table {
+    word-wrap: break-word;
+    color:#644202
 }
 
 .table p {
