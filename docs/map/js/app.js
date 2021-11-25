@@ -61,20 +61,21 @@ var custom_icon = new L.ExtraMarkers.icon ({
 });
 
 // function for categorized symbols
+// presidio
 function presidio_style(feature, latlng) {
 	switch(feature.properties["presidio"]){
 		case "Fontana":
 			var fontanaIcon = new L.ExtraMarkers.icon ({
 				icon: 'fa-faucet',
 				prefix: 'fa',
-    			markerColor: 'cyan',
+    		markerColor: 'cyan',
 			});
 			return L.marker(latlng, {icon: fontanaIcon});
 		case "Sorgente":
 			var sorgenteIcon = new L.ExtraMarkers.icon ({
 				icon: 'fa-tint',
 				prefix: 'fa',
-    			markerColor: 'blue-dark',
+    		markerColor: 'blue-dark',
 			});
 			return L.marker(latlng, {icon: sorgenteIcon});
 		case "Opere idrauliche":
@@ -84,23 +85,54 @@ function presidio_style(feature, latlng) {
     			markerColor: 'purple'
 			});
 			return L.marker(latlng, {icon: opereIcon});
-		case "Rudere":
-			var rudereIcon = new L.ExtraMarkers.icon ({
-				icon: 'fa-dungeon',
-				prefix: 'fa',
-    			markerColor: 'purple'
-			});
-			return L.marker(latlng, {icon: rudereIcon});
 		case "Corso d'acqua":
 			var corsoIcon = new L.ExtraMarkers.icon ({
 				icon: 'fa-stream',
 				iconColor: '#1e91d3',
 				prefix: 'fa',
-    			markerColor: 'white',
+    		markerColor: 'white',
 			});
 			return L.marker(latlng, {icon: corsoIcon});
 		};
 	};
+	// function for categorized symbols
+	// descriptio
+	function descriptio_style(feature, latlng) {
+		switch(feature.properties["descriptio"]){
+			case "Tabella informativa":
+				var tabellaIcon = new L.ExtraMarkers.icon ({
+					icon: 'fa-info',
+					prefix: 'fas',
+	    		markerColor: 'green',
+					shape: 'square',
+				});
+				return L.marker(latlng, {icon: tabellaIcon});
+			case "Punti d'interesse":
+				var poiIcon = new L.ExtraMarkers.icon ({
+					icon: 'fa-map-marker-alt',
+					prefix: 'fas',
+	    		markerColor: 'blue-dark',
+					shape: 'square',
+				});
+				return L.marker(latlng, {icon: poiIcon});
+			case "Murales":
+				var muralesIcon = new L.ExtraMarkers.icon ({
+					icon: 'fa-dragon',
+					prefix: 'fas',
+	    		markerColor: 'green-light',
+					shape: 'square',
+				});
+				return L.marker(latlng, {icon: muralesIcon});
+			case "Fontana della memoria":
+				var memoriaIcon = new L.ExtraMarkers.icon ({
+					icon: 'fa-comment-dots',
+					prefix: 'fas',
+	    		markerColor: 'green-dark',
+					shape: 'square',
+				});
+				return L.marker(latlng, {icon: memoriaIcon});
+			};
+		};
 
 // loading poi_acquedotto geoJson
 var poi_acquedotto = new L.geoJson(poi_acquedotto, {
@@ -138,15 +170,6 @@ var cisav_opere_idrauliche = new L.geoJson(cisav_acque, {
 		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
 }).addTo(mymap);
 
-var cisav_rudere = new L.geoJson(cisav_acque, {
-	filter: function (feature, layer) {
-	return (feature.properties.presidio === "Rudere")},
-	pointToLayer: presidio_style,
-	style: presidio_style,
-	onEachFeature: function (feature, layer) {
-		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione<td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
-}).addTo(mymap);
-
 var cisav_corso_acqua = new L.geoJson(cisav_acque, {
 	filter: function (feature, layer) {
 	return (feature.properties.presidio === "Corso d'acqua")},
@@ -156,34 +179,106 @@ var cisav_corso_acqua = new L.geoJson(cisav_acque, {
 		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
 }).addTo(mymap);
 
+
+// filter mancini point based on presidio descriptio
+var table = new L.geoJson(mancini, {
+	filter: function (feature, layer) {
+	return (feature.properties.descriptio === "Tabella informativa")},
+	pointToLayer: descriptio_style,
+	style: descriptio_style,
+	onEachFeature: function (feature, layer) {
+	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Name+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.descriptio+'</td></tr><tbody></table>')}
+}).addTo(mymap);
+
+var murales = new L.geoJson(mancini, {
+	filter: function (feature, layer) {
+	return (feature.properties.descriptio === "Murales")},
+	pointToLayer: descriptio_style,
+	style: descriptio_style,
+	onEachFeature: function (feature, layer) {
+	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Name+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.descriptio+'</td></tr><tbody></table>')}
+}).addTo(mymap);
+
+var memoria = new L.geoJson(mancini, {
+	filter: function (feature, layer) {
+	return (feature.properties.descriptio === "Fontana della memoria")},
+	pointToLayer: descriptio_style,
+	style: descriptio_style,
+	onEachFeature: function (feature, layer) {
+	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Name+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.descriptio+'</td></tr><tbody></table>')}
+}).addTo(mymap);
+
+var infopoint = new L.geoJson(mancini, {
+	filter: function (feature, layer) {
+	return (feature.properties.descriptio === "Punti d'interesse")},
+	pointToLayer: descriptio_style,
+	style: descriptio_style,
+	onEachFeature: function (feature, layer) {
+	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Name+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.descriptio+'</td></tr><tbody></table>')}
+});
+
+
+// load sentieri
+var fiume_volturno = new L.geoJson(fiume_volturno, {
+	weight: 6,
+  //dashArray: '5, 10',
+  lineCap: 'round', // Optional, just to avoid round borders.
+  color: '#0B84EE'
+}).addTo(mymap);
+fiume_volturno.bindTooltip("Fiume Volturno",  {sticky: true});
+
+var dorsale_sentiero = new L.geoJson(dorsale_sentiero, {
+	weight: 5,
+	color: 'red',
+	dashArray: '5, 10',
+	onEachFeature: function(feature, layer){
+        layer.bindTooltip(feature.properties.Tratto), {sticky: true}}
+}).addTo(mymap);
+//fiume_volturno.bindTooltip("Fiume Volturno", {sticky: true});
+
+
 // create overlaymaps for L.control.layers with custom icons
-var overlayMaps = {
-    '<img src = ico/fontane.png width="25px">Fontane': cisav_fontane,
+//var overlayMaps = {
+//    '<img src = ico/fontane.png width="25px">Fontane': cisav_fontane,
+//    '<img src = ico/sorgenti.png width="25px">Sorgenti': cisav_sorgenti,
+//		'<img src = ico/corso_acqua.png width="25px">Corsi d&#8217acqua':cisav_corso_acqua,
+//		'<img src = ico/opere_idrauliche.png width="25px">Opere idrauliche':cisav_opere_idrauliche,
+//		'<img src = ico/poi.png width="25px">POI Acquedotto romano di Venafro':poi_acquedotto,
+//};
+
+// create grouped overlaymaps for L.control.groupedLayers with custom icons
+
+var groupedOverlays = {
+	"Sentiero di Acqua e Pietra – Il racconto delle comunità" : {
+		'<img src = ico/fontane.png width="25px">Fontane': cisav_fontane,
     '<img src = ico/sorgenti.png width="25px">Sorgenti': cisav_sorgenti,
-	'<img src = ico/corso_acqua.png width="25px">Corsi d&#8217acqua':cisav_corso_acqua,
-	'<img src = ico/opere_idrauliche.png width="25px">Opere idrauliche':cisav_opere_idrauliche,
-	'<img src = ico/poi.png width="25px">POI Acquedotto romano di Venafro':poi_acquedotto,
+		'<img src = ico/corso_acqua.png width="25px">Corsi d&#8217acqua':cisav_corso_acqua,
+		'<img src = ico/opere_idrauliche.png width="25px">Opere idrauliche':cisav_opere_idrauliche,
+	},
+	"Sentiero di Acqua e Pietra – Camminare nell’Acqua e nella Pietra":{
+		'<img src = ico/table.png width="25px">Tabella informativa': table,
+    '<img src = ico/murales.png width="25px">Murales': murales,
+		'<img src = ico/memoria.png width="25px">Fontana della memoria':memoria,
+	},
+	"Sentiero di Acqua e Pietra – L'acquedotto romano tra passato e futuro":{
+		'<img src = ico/poi.png width="25px">POI Acquedotto romano di Venafro':poi_acquedotto,
+	},
+	"Rete dei sentieri":{
+		'<i class="fas fa-wave-square fa-2x" style="color:#0B84EE"></i> Fiume Volturno':fiume_volturno,
+		'<i class="fas fa-wave-square fa-2x" style="color:red"></i> Sentiero':dorsale_sentiero,
+	},
 };
 
-L.control.layers(baseMaps, overlayMaps, {collapsed: true}).addTo(mymap);
+//L.control.layers(baseMaps, overlayMaps, {collapsed: true}).addTo(mymap);
+
+L.control.groupedLayers(baseMaps, groupedOverlays).addTo(mymap);
 
 // sidebar
 // create the sidebar instance and add it to the map
 var sidebar = L.control.sidebar({container:'sidebar'}).addTo(mymap).open('home');
 // add panels dynamically to the sidebar
-sidebar.addPanel({
-id:'basemaps_header',
-tab:'<i class="fas fa-globe-europe"></i>',
-title:'Basemaps',
-})
 
-sidebar.addPanel({
-id:   'info',
-tab:  '<i class="fas fa-info-circle"></i>',
-title: 'Informazioni',
-pane: '<br><h6><p>Webmap creata da <a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG_sito.png" width = "25%"></a></p><p> La mappa è stata realizzata utilizzando le seguenti librerie e plug-in:</p><li><a href="https://leafletjs.com/"><span style ="color: #36a3d4">Leaflet</span></a> per la creazione della Webmap</li><li><a href="https://github.com/coryasilva/Leaflet.ExtraMarkers"><span style ="color: #36a3d4">Leaflet.Extra-Markers plugin v2.0</span></a> per le icone personalizzate</li><li><a href="https://github.com/Turbo87/sidebar-v2"><span style ="color: #36a3d4">Sidebar-v2</span></a> per la barra laterale</li><li><a href="https://fontawesome.com/"><span style ="color: #36a3d4">Font Awesome</span></a> per le icone</li><li><a href="https://www.qgis.org/"><span style ="color: #36a3d4">QGIS</span></a> per la gestione dei dati geografici e la creazione della base IGM</li>'
-})
-
+https://github.com/ismyrnow/leaflet-groupedlayercontrol
 // be notified when a panel is opened
 sidebar.on('content', function (ev) {
 switch (ev.id) {

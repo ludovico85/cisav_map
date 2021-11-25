@@ -50,7 +50,7 @@ html, body {
   bottom: 0;
   height: 100%;
   background-color: #557cabd4;
-  }
+}
 
 .leaflet-sidebar-header {
 margin: -10px -20px 0;
@@ -80,4 +80,17 @@ background-color: #557cabd4;};
 
 .fa-facebook-square {
   color: blue;
+}
+
+#logo {
+position: absolute;
+z-index: 9999;
+bottom: 20px;
+right: 10px;
+background-color: rgba(255,255,255,0.5)
+}
+
+.leaflet-sidebar-pane-content {
+  padding: 10px;
+  margin-left: 0px;
 }
