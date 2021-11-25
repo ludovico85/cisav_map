@@ -143,7 +143,7 @@ var cisav_sorgenti = new L.geoJson(cisav_acque, {
 	pointToLayer: presidio_style,
 	style: presidio_style,
 	onEachFeature: function (feature, layer) {
-	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
+	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td>'+feature.properties.presidio+'</td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
 }).addTo(mymap);
 
 var cisav_fontane = new L.geoJson(cisav_acque, {
@@ -152,7 +152,7 @@ var cisav_fontane = new L.geoJson(cisav_acque, {
 	pointToLayer: presidio_style,
 	style: presidio_style,
 	onEachFeature: function (feature, layer) {
-	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
+	layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td>'+feature.properties.presidio+'</td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
 }).addTo(mymap);
 
 var cisav_opere_idrauliche = new L.geoJson(cisav_acque, {
@@ -161,7 +161,7 @@ var cisav_opere_idrauliche = new L.geoJson(cisav_acque, {
 	pointToLayer: presidio_style,
 	style: presidio_style,
 	onEachFeature: function (feature, layer) {
-		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
+		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td>'+feature.properties.presidio+'</td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
 }).addTo(mymap);
 
 var cisav_corso_acqua = new L.geoJson(cisav_acque, {
@@ -170,7 +170,7 @@ var cisav_corso_acqua = new L.geoJson(cisav_acque, {
 	pointToLayer: presidio_style,
 	style: presidio_style,
 	onEachFeature: function (feature, layer) {
-		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td> '+feature.properties.presidio+'</p></td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
+		layer.bindPopup('<table class="table"><tbody><tr><td>Denominazione</td><td>'+feature.properties.Denominazione+'</td></tr><tr><td>Comune</td><td>'+feature.properties.Comune+'</td></tr><tr><td>Tipo di presidio</td><td>'+feature.properties.presidio+'</td></tr></tr><tr><td>Quota m s.l.m.</td><td>'+feature.properties.Quota+'</td></tr><tr><td>Descrizione</td><td>'+feature.properties.Descrizione+'</td></tr><tr><td>Fonte dati</td><td>'+feature.properties.Fonte+'</td></tr><tr><tr class="text-center"><td colspan="2">'+feature.properties.link_button+'</td></tr></tbody></table>')}
 }).addTo(mymap);
 
 
