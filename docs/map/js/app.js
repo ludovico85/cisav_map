@@ -3,9 +3,9 @@ var mymap = L.map('map',
 	{
 		zoomControl:false,//custom zoom control
 		minZoom: 10,
-    	maxZoom: 18,
+    maxZoom: 18,
 		maxBounds: [[41.15, 13], [42.5, 15]],
-		fullscreenControl:true
+		//fullscreenControl:true
 }).setView([41.55518701, 14.087], 11);
 
 L.control.zoom({
@@ -14,6 +14,7 @@ L.control.zoom({
 
 L.control.scale().addTo(mymap); // add scale bar
 
+mymap.addControl(new L.Control.Fullscreen());
 // custom attribution
 mymap.attributionControl.addAttribution('powered by<a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG-minimini.png" width = "15px"> naturagis</a>');
 
