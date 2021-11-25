@@ -14,7 +14,9 @@ L.control.zoom({
 
 L.control.scale().addTo(mymap); // add scale bar
 
-mymap.addControl(new L.Control.Fullscreen());
+mymap.addControl(new L.Control.Fullscreen({
+	position:'topright'
+}));
 // custom attribution
 mymap.attributionControl.addAttribution('powered by<a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG-minimini.png" width = "15px"> naturagis</a>');
 
