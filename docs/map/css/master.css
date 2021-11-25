@@ -126,3 +126,8 @@ background-color: rgba(255,255,255,0.5)
   bottom: 0px;
   margin:0;
 }
+
+.leaflet-control-layers-list {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color: #644202;
+}
