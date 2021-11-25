@@ -5,18 +5,20 @@ var mymap = L.map('map',
 		minZoom: 10,
     maxZoom: 18,
 		maxBounds: [[41.15, 13], [42.5, 15]],
-		//fullscreenControl:true
 }).setView([41.55518701, 14.087], 11);
 
+// custom zoom control
 L.control.zoom({
     position:'topright'// default is topleft
 }).addTo(mymap);
 
 L.control.scale().addTo(mymap); // add scale bar
 
+// custom full screen control
 mymap.addControl(new L.Control.Fullscreen({
 	position:'topright'
 }));
+
 // custom attribution
 mymap.attributionControl.addAttribution('powered by<a href="http://www.naturagis.it" target="_blank"> <img src ="https://www.naturagis.it/wp-content/uploads/2021/10/NG-minimini.png" width = "15px"> naturagis</a>');
 
@@ -49,7 +51,7 @@ var baseMaps = {
 };
 
 // loading geoJson
-// custom icon
+// custom icon for poi acquedotto
 var custom_icon = new L.ExtraMarkers.icon ({
 	icon: 'fa-tint',
 	prefix: 'fa',
@@ -218,8 +220,7 @@ var infopoint = new L.geoJson(mancini, {
 // load sentieri
 var fiume_volturno = new L.geoJson(fiume_volturno, {
 	weight: 6,
-  //dashArray: '5, 10',
-  lineCap: 'round', // Optional, just to avoid round borders.
+  lineCap: 'round',
   color: '#0B84EE'
 }).addTo(mymap);
 fiume_volturno.bindTooltip("Fiume Volturno",  {sticky: true});
@@ -231,8 +232,6 @@ var dorsale_sentiero = new L.geoJson(dorsale_sentiero, {
 	onEachFeature: function(feature, layer){
         layer.bindTooltip(feature.properties.Tratto, {sticky: true})}
 }).addTo(mymap);
-//fiume_volturno.bindTooltip("Fiume Volturno", {sticky: true});
-
 
 // create overlaymaps for L.control.layers with custom icons
 //var overlayMaps = {
@@ -244,7 +243,6 @@ var dorsale_sentiero = new L.geoJson(dorsale_sentiero, {
 //};
 
 // create grouped overlaymaps for L.control.groupedLayers with custom icons
-
 var groupedOverlays = {
 	"Sentiero di Acqua e Pietra – Il racconto delle comunità" : {
 		'<img src = ico/fontane.png width="25px">Fontane': cisav_fontane,
@@ -267,7 +265,6 @@ var groupedOverlays = {
 };
 
 //L.control.layers(baseMaps, overlayMaps, {collapsed: true}).addTo(mymap);
-
 L.control.groupedLayers(baseMaps, groupedOverlays).addTo(mymap);
 
 // sidebar
@@ -275,7 +272,6 @@ L.control.groupedLayers(baseMaps, groupedOverlays).addTo(mymap);
 var sidebar = L.control.sidebar({container:'sidebar'}).addTo(mymap).open('home');
 // add panels dynamically to the sidebar
 
-https://github.com/ismyrnow/leaflet-groupedlayercontrol
 // be notified when a panel is opened
 sidebar.on('content', function (ev) {
 switch (ev.id) {
