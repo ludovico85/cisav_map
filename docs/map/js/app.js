@@ -269,7 +269,7 @@ L.control.groupedLayers(baseMaps, groupedOverlays, {collapsed: false}).addTo(mym
 
 // sidebar
 // create the sidebar instance and add it to the map
-var sidebar = L.control.sidebar({container:'sidebar'}).addTo(mymap).open('home');
+var sidebar = L.control.sidebar({container:'sidebar'}).addTo(mymap);
 // add panels dynamically to the sidebar
 
 // be notified when a panel is opened
